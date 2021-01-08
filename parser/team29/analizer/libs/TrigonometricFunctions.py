@@ -13,7 +13,7 @@ def acos(column):
         if isinstance(column[i], int) or isinstance(column[i], float):
             valor = ""
             if column[i] >= -1 and 1 >= column[i]:
-                valor = str(math.acos(column[i]))
+                valor = math.acos(column[i])
             else:
                 valor = "Error de dominio"
                 list_errors_tg.append("Error: 22003: la entrada esta fuera del dominio")
@@ -37,7 +37,7 @@ def asin(column):
         if isinstance(column[i], int) or isinstance(column[i], float):
             valor = ""
             if column[i] >= -1 and 1 >= column[i]:
-                valor = str(math.asin(column[i]))
+                valor = math.asin(column[i])
             else:
                 valor = "Error de dominio"
                 list_errors_tg.append("Error: 22003: la entrada esta fuera del dominio")

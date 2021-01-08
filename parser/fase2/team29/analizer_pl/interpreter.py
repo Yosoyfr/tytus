@@ -27,7 +27,9 @@ def traducir(input):
     if len(lexerErrors) + len(syntaxErrors) == 0 and result:
         for r in result:
             if r:
-                c3d += r.execute(env).value
+                temp = r.execute(env)
+                if temp:
+                    c3d += temp.value
             else:
                 c3d += "Instruccion SQL \n"
     f = open("test-output/c3d.py", "w+")

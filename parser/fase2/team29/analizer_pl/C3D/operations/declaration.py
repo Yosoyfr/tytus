@@ -23,7 +23,14 @@ class Declaration(Instruction):
                 val = a.value
                 tmp = a.temp
             else:
-                val = "\t" + self.id + " = None\n"
+                temp = "''"
+                if self.type == TYPE.STRING:
+                    temp = "''"
+                elif self.type == TYPE.NUMBER:
+                    temp = 0
+                elif self.type == TYPE.BOOLEAN:
+                    temp = "False"
+                val = "\t" + self.id + " = " + str(temp) + "\n"
             return code.C3D(val, tmp, self.row, self.column)
         except:
             grammar.PL_errors.append("Error P0000: plpgsql fatal error ")

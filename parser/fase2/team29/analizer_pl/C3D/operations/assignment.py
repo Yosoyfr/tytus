@@ -33,7 +33,6 @@ class Assignment(Instruction):
                 """
                 grammar.optimizer_.addScalarAsig(self.id, exp.temp, self.row, True)
                 # grammar.optimizer_.addIgnoreString(str(fix), self.row, False)
-
                 return code.C3D(self.value, self.id, self.row, self.column)
             else:
                 grammar.PL_errors.append(
@@ -43,7 +42,9 @@ class Assignment(Instruction):
                     + self.row
                 )
         except:
-            grammar.PL_errors.append("Error P0000: Error en la asignacion de valor")
+            grammar.PL_errors.append(
+                "Error P0000: Error en la asignacion de valor a " + self.id
+            )
 
     def dot(self):
         new = Nodo("ASSIGMENT")
